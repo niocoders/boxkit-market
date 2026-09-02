@@ -35,7 +35,7 @@
     <span id="saved"></span>
   </div>
   <script>
-    const KEY = "legacy plugin format-demo-note";
+    const KEY = "legacy-demo-note";
     window.addEventListener("load", () => {
       const doc = bk.db.get(KEY);
       if (doc) document.getElementById("note").value = doc.data.text ?? "";

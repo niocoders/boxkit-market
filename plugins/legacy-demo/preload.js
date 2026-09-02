@@ -1,4 +1,4 @@
-// legacy plugin format 风格 preload：与 legacy plugin format 插件写法一致，直接使用 BoxKit 全局
+// BoxKit preload 示例
 bk.onPluginEnter(({ code, payload }) => {
   window.currentFeature = code;
   window.enterPayload = payload;
