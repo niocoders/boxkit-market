@@ -33,13 +33,13 @@ node tools/build-market.mjs
 
 插件清单遵循 BoxKit 的 `features`、`cmds`、`main`、`preload` 约定，必须有合法的 `name`（2-64 位小写字母/数字/中划线）、`displayName`、三段式 `version`、至少一个 feature 和有效入口。支持 BoxKit 权限：`clipboard`、`db`、`notify`、`network`、`shell`、`screen`、`window`。
 
-同时兼容常见的 legacy plugin format 清单写法：
+同时兼容常见的 legacy format 清单写法：
 
-- 可以保留 legacy plugin format 的 `pluginName`；构建清单会把它稳定归一化为市场 `pluginId` 和显示名，压缩包内的 `plugin.json` 原样保留。
-- 正则命令可以使用 legacy plugin format 的 `minNum`，构建清单会按 `minLength` 语义归一化。
-- BoxKit 提供与 legacy plugin format 对应的运行时 API，但具体 API、权限和 Node 能力取决于 BoxKit 宿主版本；安装来自不可信来源的插件等同于授予其插件运行权限。
+- 可以保留 legacy format 的 `pluginName`；构建清单会把它稳定归一化为市场 `pluginId` 和显示名，压缩包内的 `plugin.json` 原样保留。
+- 正则命令可以使用 legacy format 的 `minNum`，构建清单会按 `minLength` 语义归一化。
+- BoxKit 提供与 legacy format 对应的运行时 API，但具体 API、权限和 Node 能力取决于 BoxKit 宿主版本；安装来自不可信来源的插件等同于授予其插件运行权限。
 
-`.bkx` 是本市场和 BoxKit 使用的插件包扩展名；`.upx` 是 legacy plugin format 生态的原生分发扩展名，不能直接当作本仓的 `.bkx` 发布物。需要发布 `.upx` 时，请遵循 legacy plugin format 官方工具链，并同时确认插件能在目标宿主中运行。
+`.bkx` 是本市场和 BoxKit 使用的插件包扩展名；`.upx` 是 legacy format 生态的原生分发扩展名，不能直接当作本仓的 `.bkx` 发布物。需要发布 `.upx` 时，请遵循 legacy format 官方工具链，并同时确认插件能在目标宿主中运行。
 
 ## 发布方式
 

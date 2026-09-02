@@ -1,1 +1,30 @@
-{"name":"legacy-demo","displayName":"Legacy Demo 插件","description":"BoxKit 兼容 API 示例：使用 window.bk 编写的便签插件","version":"1.0.0","author":"BoxKit Authors","license":"MIT","main":"index.html","preload":"preload.js","logo":"logo.svg","features":[{"code":"note","explain":"便签","cmds":["便签","note","笔记"]},{"code":"stamp","explain":"当前时间戳","cmds":["现在时间戳","nowts"]}]}
+{
+  "name": "legacy-demo",
+  "displayName": "Legacy Demo 插件",
+  "description": "BoxKit 兼容 API 示例：使用 window.bk 编写的便签插件",
+  "version": "1.0.0",
+  "author": "BoxKit Authors",
+  "license": "MIT",
+  "main": "index.html",
+  "preload": "preload.js",
+  "logo": "logo.svg",
+  "features": [
+    {
+      "code": "note",
+      "explain": "便签",
+      "cmds": [
+        "便签",
+        "note",
+        "笔记"
+      ]
+    },
+    {
+      "code": "stamp",
+      "explain": "当前时间戳",
+      "cmds": [
+        "现在时间戳",
+        "nowts"
+      ]
+    }
+  ]
+}

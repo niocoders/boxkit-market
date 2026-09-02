@@ -66,7 +66,7 @@ footer a { color:#4a90d9; text-decoration:none; }
 </main>
 <footer>
   <b>发布插件</b>：把插件目录（含 <code>plugin.json</code>）提交到公开仓 <code>plugins/</code> 下并 push，独立 CI 会自动校验、打包为 <code>.bkx</code> 并部署本页面。模板位于 <code>template/</code>；构建脚本是 <code>tools/build-market.mjs</code>。<br>
-  本市场兼容 BoxKit 与 uTools 风格清单（包括 <code>pluginName</code> 和正则命令的 <code>minNum</code>），生成的 <code>.bkx</code> 为 ZIP 插件包；<code>.upx</code> 仅适用于 uTools 原生分发，不能替代本市场的 <code>.bkx</code>。清单 <code>manifest.json</code> 同时供 BoxKit 客户端消费。
+  本市场兼容 BoxKit 与 legacy format 风格清单（包括 <code>pluginName</code> 和正则命令的 <code>minNum</code>），生成的 <code>.bkx</code> 为 ZIP 插件包；<code>.upx</code> 仅适用于 legacy format 原生分发，不能替代本市场的 <code>.bkx</code>。清单 <code>manifest.json</code> 同时供 BoxKit 客户端消费。
 </footer>
 <script>
 let plugins = [];
