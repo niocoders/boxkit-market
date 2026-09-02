@@ -1,6 +1,6 @@
 {
-  "pluginName": "Utools Demo 插件",
-  "description": "uTools 兼容性示例：使用 window.utools API（生命周期/文档存储/通知）编写的便签插件",
+  "pluginName": "legacy plugin format Demo 插件",
+  "description": "legacy plugin format 兼容性示例：使用 window.legacy plugin format API（生命周期/文档存储/通知）编写的便签插件",
   "version": "1.0.0",
   "author": "BoxKit Official",
   "main": "index.html",
