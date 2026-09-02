@@ -28,28 +28,28 @@
 </head>
 <body>
   <div id="status"></div>
-  <textarea id="note" placeholder="随手记点什么…（存储使用 utools.db）"></textarea>
+  <textarea id="note" placeholder="随手记点什么…（存储使用 legacy plugin format.db）"></textarea>
   <div class="bar">
-    <button onclick="save()">保存便签 (utools.db.put)</button>
+    <button onclick="save()">保存便签 (legacy plugin format.db.put)</button>
     <button class="gray" onclick="clearNote()">清空</button>
     <span id="saved"></span>
   </div>
   <script>
-    const KEY = "utools-demo-note";
+    const KEY = "legacy plugin format-demo-note";
     window.addEventListener("load", () => {
-      const doc = utools.db.get(KEY);
+      const doc = legacy plugin format.db.get(KEY);
       if (doc) document.getElementById("note").value = doc.data.text ?? "";
     });
     function save() {
       const text = document.getElementById("note").value;
-      const prev = utools.db.get(KEY);
-      const r = utools.db.put({ _id: KEY, _rev: prev?._rev, data: { text, savedAt: Date.now() } });
+      const prev = legacy plugin format.db.get(KEY);
+      const r = legacy plugin format.db.put({ _id: KEY, _rev: prev?._rev, data: { text, savedAt: Date.now() } });
       document.getElementById("saved").textContent = r.ok ? "已保存 ✓" : "保存失败: " + r.error;
-      utools.notify(r.ok ? "便签已保存" : "保存失败");
+      legacy plugin format.notify(r.ok ? "便签已保存" : "保存失败");
     }
     function clearNote() {
-      const prev = utools.db.get(KEY);
-      if (prev) utools.db.remove({ _id: KEY, _rev: prev._rev });
+      const prev = legacy plugin format.db.get(KEY);
+      if (prev) legacy plugin format.db.remove({ _id: KEY, _rev: prev._rev });
       document.getElementById("note").value = "";
       document.getElementById("saved").textContent = "已清空";
     }
