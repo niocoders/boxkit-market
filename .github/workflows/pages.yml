@@ -1,11 +1,15 @@
-# 市场仓 Pages 部署（boxkit-market）
-# 本文件由主仓 niocoders/boxkit 的 pages.yml 连同市场内容一起 push 到这里。
-# 内容变更（push 到 main）→ 本 workflow 将目录部署为 GitHub Pages。
-name: Deploy Pages
+name: Publish Market
 
 on:
   push:
     branches: [main]
+    paths:
+      - "plugins/**"
+      - "template/**"
+      - "site/index.html"
+      - "tools/build-market.mjs"
+      - "package.json"
+      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -18,16 +22,38 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Build market
+        run: node tools/build-market.mjs
+      - name: Check generated site
+        run: |
+          test -f site/index.html
+          test -f site/manifest.json
+          test "$(find site/plugins -maxdepth 1 -type f -name '*.bkx' | wc -l)" -ge 1
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-      - id: deployment
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4

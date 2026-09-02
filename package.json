@@ -1,0 +1,15 @@
+{
+  "name": "boxkit-market",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BoxKit 独立公开插件仓与 GitHub Pages 市场",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "market": "node tools/build-market.mjs",
+    "build": "node tools/build-market.mjs"
+  },
+  "packageManager": "pnpm@10.33.0"
+}

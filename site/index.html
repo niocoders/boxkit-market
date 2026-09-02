@@ -58,15 +58,15 @@ footer a { color:#4a90d9; text-decoration:none; }
   <a class="gh-link" href="https://github.com/niocoders/boxkit-market" target="_blank" rel="noopener">GitHub 仓库 →</a>
 </header>
 <main>
-  <div class="tip">已安装 <b>BoxKit</b> 客户端？点击「导入到 BoxKit」在客户端内自动完成下载与安装。尚未安装？点「下载 .bkx」后，在客户端「设置 → 插件 → 安装插件包」选择该文件即可。</div>
+  <div class="tip"><b>BoxKit</b> 插件市场由公开仓 <code>niocoders/boxkit-market</code> 独立维护。插件源码位于仓库 <code>plugins/</code> 下，CI 会校验并生成可安装的 <code>.bkx</code> 包。已安装 BoxKit？点击「导入到 BoxKit」即可开始安装；也可下载包后在客户端「设置 → 插件 → 安装插件包」导入。</div>
   <div class="meta-line" id="metaLine"></div>
   <div id="errBox" class="err" style="display:none"></div>
   <div id="grid" class="grid"></div>
   <div id="empty" class="empty" style="display:none">没有匹配的插件</div>
 </main>
 <footer>
-  <b>发布插件</b>：把插件目录（含 <code>plugin.json</code>）提交到仓库 <code>plugins/</code> 下并 push，CI 会自动打包为 <code>.bkx</code>、更新清单并部署本页面。插件开发文档见仓库 <code>docs/plugin-dev.md</code>。
-  <br>本页为纯静态站点，托管于 GitHub Pages；清单 <code>manifest.json</code> 同时供 BoxKit 客户端「设置 → 插件 → 插件市场」消费。
+  <b>发布插件</b>：把插件目录（含 <code>plugin.json</code>）提交到公开仓 <code>plugins/</code> 下并 push，独立 CI 会自动校验、打包为 <code>.bkx</code> 并部署本页面。模板位于 <code>template/</code>；构建脚本是 <code>tools/build-market.mjs</code>。<br>
+  本市场兼容 BoxKit 与 uTools 风格清单（包括 <code>pluginName</code> 和正则命令的 <code>minNum</code>），生成的 <code>.bkx</code> 为 ZIP 插件包；<code>.upx</code> 仅适用于 uTools 原生分发，不能替代本市场的 <code>.bkx</code>。清单 <code>manifest.json</code> 同时供 BoxKit 客户端消费。
 </footer>
 <script>
 let plugins = [];
